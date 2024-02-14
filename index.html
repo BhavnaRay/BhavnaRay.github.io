@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container text-center mt-5">
+<div id="p1">
+<img id = "I" src= "https://media.tenor.com/ZKsi3WzsGKwAAAAi/bubu-dudu-bear-and-panda.gif" height=180px width=auto>
+<h1 class="my-2">Who is your bestfriend?</h1>
+
+<button id= "B" class="btn btn-success m-2" type="button" onclick="javascript:green()" style="height:70px; width: 150px; font-size: 12pt; max-width:100%" >Maaa</button>
+<button id= "G" class="btn btn-danger m-2" type="button" onclick="javascript:red()" style="height:70px; width: 150px; font-size: 12pt;">Someone else</button>
+</div>
+<div id="p2" style="display:none">
+<img id = "I" src= "https://gifdb.com/images/high/bear-hug-milk-and-mocha-hf385d9fk9mwyh7l.gif" height=250px width=auto>
+<h1 class="my-2">Yayyy! That's the right choice.</h1>
+</div>
+</div>
+<script>
+let yes=document.getElementById("B");
+let no=document.getElementById("G");
+
+let txts= [
+"Are you sure?",
+"Really sure?",
+"Think again.",
+"Last chance.",
+"Surely not?",
+"Give it another thought?",
+"This Could be a mistake.",
+"Don't be so cold.",
+"Have a heart.",
+"Please reconsider.",
+"Is that your final answer?",
+"You're breaking my heart."
+]
+
+let cnt=-1;
+
+let im=document.getElementById("I");
+
+function red(){
+cnt += 1;
+if (cnt==0) {
+im.setAttribute("src", "https://media.tenor.com/r7zcfNgjuEYAAAAj/bubu-dudu-bubu-dudu-fight.gif");
+im.setAttribute("height", "200px")
+}
+let ht=parseInt(String(yes.style.height).slice(0,-2));
+yes.style.height=String(ht+30)+"px";
+let wt=parseInt(String(yes.style.width).slice(0,-2));
+yes.style.width=String(wt+30)+"px";
+let ft=parseInt(String(yes.style.fontSize).slice(0,-2));
+yes.style.fontSize=String(ft+8)+"pt";
+
+no.innerText=txts[cnt%txts.length];
+}
+
+function green() {
+let cont1=document.getElementById("p1");
+let cont2=document.getElementById("p2");
+cont1.style.display="none";
+cont2.style.display="unset";
+}
+
+</script>
+ 
+</body>
+</html>
